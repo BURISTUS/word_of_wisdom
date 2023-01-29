@@ -1,0 +1,41 @@
+* Tcp word of wisdom server with dos protection using POW algo
+** Project structure
+#+begin_src
+tcp_server
+  src
+    config.rs
+    errors.rs
+    main.rs
+    lib.rs
+  Cargo.toml
+  config.yaml
+  Dockerfile
+
+tcp_client
+  src
+    main.rs
+  Cargo.toml
+  Dockerfile
+#+end_src
+
+
+** Build
+To run server use this command in terminal
+#+begin_src
+cargo run
+#+end_src
+
+To run client use this command in another therminal
+
+#+begin_src
+cargo run
+#+end_src
+
+
+** Task description
+Design and implement “Word of Wisdom” tcp server.
+• TCP server should be protected from DDOS attacks with the Prof of Work (https://en.wikipedia.org/wiki/Proof_of_work),
+  the challenge-response protocol should be used.
+• The choice of the POW algorithm should be explained.
+• After Prof Of Work verification, server should send one of the quotes from “word of wisdom” book or any other collection of the quotes.
+• Docker file should be provided both for the server and for the client that solves the POW challenge
