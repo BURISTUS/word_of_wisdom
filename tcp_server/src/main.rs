@@ -10,8 +10,7 @@ use tokio::{
 
 #[tokio::main]
 async fn main() -> Result<(), GeneralErrors> {
-    let configuration = get_config().unwrap();
-        //map_err(|_| GeneralErrors::ReadConfigError)?;
+    let configuration = get_config().map_err(|_| GeneralErrors::ReadConfigError)?;
     let listener = TcpListener::bind(format!(
         "{}:{}",
         configuration.application_config.host, configuration.application_config.port
