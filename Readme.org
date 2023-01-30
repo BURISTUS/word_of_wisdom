@@ -1,34 +1,62 @@
 * Tcp word of wisdom server with dos protection using POW algo
 ** Project structure
 #+begin_src
-tcp_server
-  src
-    config.rs
-    errors.rs
-    main.rs
-    lib.rs
-  Cargo.toml
-  config.yaml
-  Dockerfile
 
-tcp_client
-  src
-    main.rs
-  Cargo.toml
-  Dockerfile
+  tcp_server
+    src
+      config.rs
+      errors.rs
+      main.rs
+      lib.rs
+    Cargo.toml
+    config.yaml
+
+  tcp_client
+    src
+      main.rs
+    Cargo.toml
+
+Dockerfile
+docker-compose.yaml
+Readme.org
 #+end_src
 
 
 ** Build
-To run server use this command in terminal
+*** To run localy
 #+begin_src
+Change
+let mut stream = TcpStream::connect("tcp_server:8000")?;
+
+in ./tcp_client/src/main.rs to
+
+let mut stream = TcpStream::connect("0.0.0.0:8000")?;
+#+end_src
+
+#+begin_src
+cd tcp_server
+
 cargo run
 #+end_src
 
-To run client use this command in another therminal
+
+And to run client use this command in another therminal
+#+begin_src
+cd tcp_client
+
+cargo run
+#+end_src
+
+*** To run from docker
+Run from terminal
+#+begin_src
+docker compose up -d
+#+end_src
+
+To check logs of tcp_client
 
 #+begin_src
-cargo run
+docker logs tcp_client
 #+end_src
 
 ** Problem Statement
