@@ -8,7 +8,6 @@ x-base: &base
 services:
   tcp_server:
     <<: *base
-    # image: tcp-tcp_server
     container_name: tcp_server
     command: /usr/local/bin/tcp_server
     ports:
@@ -20,7 +19,6 @@ services:
 
   tcp_client:
     <<: *base
-    # image: tcp-tcp_client
     container_name: tcp_client
     command: /usr/local/bin/tcp_client
     depends_on:
