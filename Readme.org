@@ -48,7 +48,7 @@ cargo run
 #+end_src
 
 *** To run from docker
-Run from terminal
+Run from terminal in . 
 #+begin_src
 docker compose up -d
 #+end_src
