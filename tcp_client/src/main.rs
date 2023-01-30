@@ -7,7 +7,7 @@ use std::{
 };
 
 fn main() -> Result<(), io::Error> {
-    let mut stream = TcpStream::connect("0.0.0.0:8000")?;
+    let mut stream = TcpStream::connect("tcp_server:8000")?;
     let mut buffer = String::new();
     let mut nonce = [0u8; 8];
     let mut rng = OsRng;

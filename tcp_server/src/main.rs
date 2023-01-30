@@ -22,6 +22,7 @@ async fn main() -> Result<(), GeneralErrors> {
     let request_timeout = Duration::from_secs(configuration.settings_config.request_timeout);
     let max_connections = configuration.settings_config.request_timeout;
     let target_difficulty = configuration.settings_config.target_difficulty;
+    
     let mut connection_count = 0;
     
     while let Ok((stream, addr)) = listener.accept().await {

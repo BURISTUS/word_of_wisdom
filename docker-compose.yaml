@@ -1,0 +1,27 @@
+version: '3.7'
+
+x-base: &base
+  build:
+    context: ./
+    dockerfile: ./Dockerfile
+
+services:
+  tcp_server:
+    <<: *base
+    # image: tcp-tcp_server
+    container_name: tcp_server
+    command: /usr/local/bin/tcp_server
+    ports:
+      - '8000:8000'
+    environment:
+      RUST_LOG: debug
+    restart: always
+
+
+  tcp_client:
+    <<: *base
+    # image: tcp-tcp_client
+    container_name: tcp_client
+    command: /usr/local/bin/tcp_client
+    depends_on:
+      - tcp_server
